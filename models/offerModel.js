@@ -52,7 +52,10 @@ const dealSchema = new mongoose.Schema({
         type: String
     },
     brandId: {
-        type: String
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Brand",
+        required: true
+
     },
     discountedPrice:{
         type: Number
@@ -60,6 +63,10 @@ const dealSchema = new mongoose.Schema({
     link: {
         type: [String]
     },
+    tags:{
+        type: [String]
+        
+    }
 
 }, { timestamps: true });
 
