@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const connectDB = require('./config/config_Db_con');
-const userroute=require('./routes/userRouter')
+const userroute=require('./routes/user.route')
 
 //const routes = require('./routes');
 
@@ -18,9 +18,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/', userroute);
-
-
-
 
 
 module.exports = app;
