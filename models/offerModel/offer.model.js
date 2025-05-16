@@ -68,8 +68,9 @@ const dealSchema = new mongoose.Schema({
     variants: [
         {
           label: { type: String },   // e.g., "40", "XL", "Red"
-          url: { type: String }
-        }
+          value: [{  type: String}], // e.g., ["40", "42"], ["XL", "XXL"], ["Red", "Blue"]
+        },
+        
       ]
 
 }, { timestamps: true });
