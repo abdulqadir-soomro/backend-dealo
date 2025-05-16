@@ -37,9 +37,7 @@ const dealSchema = new mongoose.Schema({
     actualPrice: {
         type: Number
     },
-    discountPercentage: {
-        type: Number
-    },
+
     hasWebsite: {
         type: Boolean,
         default: false
@@ -66,7 +64,13 @@ const dealSchema = new mongoose.Schema({
     tags:{
         type: [String]
         
-    }
+    },
+    variants: [
+        {
+          label: { type: String },   // e.g., "40", "XL", "Red"
+          url: { type: String }
+        }
+      ]
 
 }, { timestamps: true });
 
