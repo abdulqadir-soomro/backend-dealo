@@ -2,6 +2,18 @@ const mongoose = require("mongoose");
 
 const dealSchema = new mongoose.Schema({
    
+
+     brandId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Brand",
+        required: true
+
+    },
+     categoryId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Category",
+        required: true
+    },
     title: {
         type: String,
         required: true
@@ -11,14 +23,11 @@ const dealSchema = new mongoose.Schema({
     },
     status: {
         type: String,
+        enum: ["active", "inactive"],
+        default: "active"
         
     },
-    
-    categoryId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Category",
-        required: true
-    },
+   
     discountPercentage: {
         type: Number,
         required: true
@@ -49,12 +58,6 @@ const dealSchema = new mongoose.Schema({
     promoCode: {
         type: String
     },
-    brandId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Brand",
-        required: true
-
-    },
     discountedPrice:{
         type: Number
     },
@@ -67,7 +70,7 @@ const dealSchema = new mongoose.Schema({
     },
     variants: [
         {
-          label: { type: String },   // e.g., "40", "XL", "Red"
+          label: { type: String },  // e.g., "Size", "Color"
           value: [{  type: String}], // e.g., ["40", "42"], ["XL", "XXL"], ["Red", "Blue"]
         },
         
